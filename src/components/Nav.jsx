@@ -24,7 +24,7 @@ export default function Nav() {
   }, []);
 
   function isActive(href) {
-    if (href === "#") return currentHash === "" || currentHash === "#";
+    if (href === "/") return currentHash === "" || currentHash === "/";
     return currentHash === href;
   }
 
@@ -32,7 +32,7 @@ export default function Nav() {
     <header className="nav">
       <div className="nav__inner">
         {/* Brand → always goes home */}
-        <a href="#" className="nav__brand">
+        <a href="/" className="nav__brand">
           Deepanshi Birla
         </a>
 

@@ -13,7 +13,7 @@ function getPage() {
   if (hash === "resume") return "resume";
   if (hash === "about") return "about";
   if (hash === "projects") return "projects";
-  return "home";
+  return "";
 }
 
 export default function App() {
