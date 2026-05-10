@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { MenuIcon, CloseIcon } from "./Icons";
 import SocialIcons from "./SocialIcons";
 
-
 const NAV_LINKS = [
   { label: "Projects", href: "/projects" },
   { label: "Resume", href: "/resume" },
@@ -14,7 +13,7 @@ export default function Nav() {
 
   // const currentHash = typeof window !== "undefined" ? window.location.hash : "";
   const [currentHash, setCurrentHash] = useState(
-    typeof window !== "undefined" ? window.location.hash : "",
+    typeof window !== "undefined" ? window.location.hash : "/",
   );
 
   useEffect(() => {
@@ -77,7 +76,6 @@ export default function Nav() {
             >
               {label}
             </a>
-
           ))}
           <SocialIcons dark />
         </div>

@@ -9,7 +9,7 @@ import AboutPage from "./components/AboutPage";
 import ResumePage from "./components/ResumePage";
 
 function getPage() {
-  const hash = window.location.hash.replace("#", "");
+  const hash = window.location.pathname.replace("/", "");
   if (hash === "resume") return "resume";
   if (hash === "about") return "about";
   if (hash === "projects") return "projects";

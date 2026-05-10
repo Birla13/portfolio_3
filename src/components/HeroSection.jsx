@@ -21,17 +21,17 @@ export default function HeroSection() {
         {/* Headline */}
         <FadeIn delay={0.1}>
           <h1 className="heading-xl hero__headline">
-            I'm Deepanshi Birla, a UX/UI designer specializing in creating
-            user-friendly mobile apps based in London, UK.
+            I’m Deepanshi Birla, a UI/UX Designer crafting high-performance
+            digital systems for complex service industries.
           </h1>
         </FadeIn>
 
         {/* Bio */}
         <FadeIn delay={0.17}>
           <p className="body-base hero__bio">
-            Leveraging insights in user psychology and aesthetics, my approach
-            enhances functionality with visual elegance, further enriching the
-            sleek, user-friendly mobile apps I specialize in.
+            With a foundation in Computer Science and a passion for
+            storytelling, I build scalable, high-conversion interfaces that
+            solve business problems with simplicity and elegance.
           </p>
         </FadeIn>
 
