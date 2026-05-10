@@ -15,7 +15,10 @@ export default function CTASection() {
           <p className="cta-section__sub">
             Let's talk projects, collaborations, or anything design!
           </p>
-          <button className="cta-section__btn">Book a call</button>
+          <a href="mailto:yourname@example.com" className="cta-link">
+            <button className="cta-section__btn">Book a consultation</button>
+          </a>
+          {/* <button className="cta-section__btn">Book a consultation</button> */}
         </FadeIn>
       </div>
     </section>

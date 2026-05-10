@@ -25,7 +25,7 @@ export default function ProjectsSection() {
             </p>
           </div>
           <div className="seeAll">
-            <a href="#projects" className="project-card__cta">
+            <a href="/projects" className="project-card__cta">
               See All Projects <ArrowRightIcon />
             </a>
           </div>
