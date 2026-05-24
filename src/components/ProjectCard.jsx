@@ -1,16 +1,5 @@
-// import { ArrowRightIcon } from "./Icons";
 import { FiExternalLink } from "react-icons/fi";
-/**
- * ProjectCard
- * Displays a project image, title, one-liner description, and CTA link.
- *
- * Props (from PROJECTS data):
- *   title       – project name
- *   description – one-liner
- *   img         – image URL
- *   alt         – image alt text
- *   href        – link destination
- */
+
 export default function ProjectCard({
   title,
   description,
