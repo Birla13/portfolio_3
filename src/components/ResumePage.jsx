@@ -114,6 +114,7 @@ export default function ResumePage() {
           <FadeIn delay={0.18}>
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href="https://drive.google.com/file/d/1WBdP6vvq6CRw_SfYYYMsrVAlaW0YV-gJ/view"
               className="resume-download-btn"
             >

@@ -20,7 +20,12 @@ export default function ProjectCard({
       <p className="project-card__desc">{description}</p>
 
       {/* CTA */}
-      <a href={href} className="project-card__cta" target="_blank">
+      <a
+        href={href}
+        className="project-card__cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {ctaText} <FiExternalLink />
       </a>
     </article>
