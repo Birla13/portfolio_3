@@ -12,6 +12,7 @@ export const PROJECTS = [
     img: project1,
     alt: "UEHD",
     href: "https://www.uehd.co.in/",
+    ctaText: "Website link",
   },
 
   {
@@ -21,6 +22,7 @@ export const PROJECTS = [
     img: project4,
     alt: "Insurance Customer app",
     href: "https://dribbble.com/shots/27337907-Reimagining-Insurance-For-Everyday-User",
+    ctaText: "Dribble link",
   },
 
   {
@@ -30,6 +32,7 @@ export const PROJECTS = [
     img: project2,
     alt: "Faveo App",
     href: "https://dribbble.com/shots/27194549-Next-Gen-Insurance-Agent-App",
+    ctaText: "Dribble link",
   },
 
   {
@@ -39,6 +42,7 @@ export const PROJECTS = [
     img: project3,
     alt: "BMI Calculator",
     href: "https://www.careinsurance.com/health-insurance/calculators/bmi-calculator",
+    ctaText: "Website link",
   },
 
   {
@@ -48,6 +52,7 @@ export const PROJECTS = [
     img: project5,
     alt: "Web Story",
     href: "https://www.careinsurance.com/web-story/",
+    ctaText: "Website link",
   },
 
 ];

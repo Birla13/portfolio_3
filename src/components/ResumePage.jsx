@@ -38,6 +38,10 @@ const PROJECTS = [
     desc: "Designed and launched a high-performance industrial website by migrating pixel-perfect Figma prototypes to a responsive Framer build, featuring a custom product-showcase framework that optimized navigation and site speed for industrial clients.",
   },
   {
+    title: "Reimagining Insurance For Everyday User",
+    desc: "Transformed the end-to-end mobile experience for policyholders by redesigning 10+ distinct modules in Figma, utilizing funnel analysis to optimize high-conversion user journeys that streamlined complex insurance processes and increased user retention.",
+  },
+  {
     title: "Faveo Plus – Internal Agent Platform Redesign",
     desc: "Transformed a complex B2B insurance ecosystem by auditing 15+ core task flows and delivering 45+ high-fidelity screens, focusing on an optimized visual hierarchy that significantly reduced usability friction for internal agents.",
   },
@@ -92,29 +96,30 @@ export default function ResumePage() {
       <section className="resume-hero">
         <div className="container">
           {/* <div className="spacing"> */}
-            <FadeIn delay={0.05}>
-              <h1 className="resume-hero__headline">
-                Creating Clarity
-                <br />
-                in a World of Complexity.
-              </h1>
-            </FadeIn>
-            <FadeIn delay={0.12}>
-              <p className="resume-hero__bio">
-                I’m a UI/UX Designer at Care Health Insurance and a Computer
-                Science graduate from IIIT Kota. I specialize in building
-                high-conversion digital experiences that solve complex user
-                problems with simplicity and scalability.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.18}>
-              <a
-                href="https://drive.google.com/file/d/1WBdP6vvq6CRw_SfYYYMsrVAlaW0YV-gJ/view"
-                className="resume-download-btn"
-              >
-                Download Resume as PDF
-              </a>
-            </FadeIn>
+          <FadeIn delay={0.05}>
+            <h1 className="resume-hero__headline">
+              Creating Clarity
+              <br />
+              in a World of Complexity.
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.12}>
+            <p className="resume-hero__bio">
+              I’m a UI/UX Designer at Care Health Insurance and a Computer
+              Science graduate from IIIT Kota. I specialize in building
+              high-conversion digital experiences that solve complex user
+              problems with simplicity and scalability.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.18}>
+            <a
+              target="_blank"
+              href="https://drive.google.com/file/d/1WBdP6vvq6CRw_SfYYYMsrVAlaW0YV-gJ/view"
+              className="resume-download-btn"
+            >
+              Download Resume as PDF
+            </a>
+          </FadeIn>
           {/* </div> */}
         </div>
       </section>
@@ -123,60 +128,57 @@ export default function ResumePage() {
       <div className="resume-body">
         <div className="container">
           {/* <div className="spacing"> */}
-            {/* Education */}
-            <ResumeSection title="Education">
-              {EDUCATION.map((edu, i) => (
-                <div key={i} className="resume-entry">
-                  <p className="resume-entry__header">
-                    <strong>{edu.degree}</strong>, {edu.school}
-                  </p>
-                  <BulletList items={edu.bullets} />
-                </div>
+          {/* Education */}
+          <ResumeSection title="Education">
+            {EDUCATION.map((edu, i) => (
+              <div key={i} className="resume-entry">
+                <p className="resume-entry__header">
+                  <strong>{edu.degree}</strong>, {edu.school}
+                </p>
+                <BulletList items={edu.bullets} />
+              </div>
+            ))}
+          </ResumeSection>
+
+          {/* Experience */}
+          <ResumeSection title="Experience">
+            {EXPERIENCE.map((exp, i) => (
+              <div key={i} className="resume-entry">
+                <p className="resume-entry__header">
+                  <strong>{exp.role}</strong>, {exp.company}, {exp.period}
+                </p>
+                <BulletList items={exp.bullets} />
+              </div>
+            ))}
+          </ResumeSection>
+
+          {/* Skills */}
+          <ResumeSection title="Skills">
+            <BulletList items={SKILLS} />
+          </ResumeSection>
+
+          {/* Projects */}
+          <ResumeSection title="Projects">
+            <ul className="resume-bullets resume-entry__header">
+              {PROJECTS.map((p, i) => (
+                <li key={i} className="resume-bullets__item">
+                  <strong>{p.title}</strong>
+                  <br />
+                  {p.desc}
+                </li>
               ))}
-            </ResumeSection>
+            </ul>
+          </ResumeSection>
 
-            {/* Experience */}
-            <ResumeSection title="Experience">
-              {EXPERIENCE.map((exp, i) => (
-                <div key={i} className="resume-entry">
-                  <p className="resume-entry__header">
-                    <strong>{exp.role}</strong>, {exp.company}, {exp.period}
-                  </p>
-                  <BulletList items={exp.bullets} />
-                </div>
-              ))}
-            </ResumeSection>
+          {/* Personal qualities */}
+          <ResumeSection title="Personal qualities">
+            <BulletList items={PERSONAL_QUALITIES} className="resume-bullets" />
+          </ResumeSection>
 
-            {/* Skills */}
-            <ResumeSection title="Skills">
-              <BulletList items={SKILLS} />
-            </ResumeSection>
-
-            {/* Projects */}
-            <ResumeSection title="Projects">
-              <ul className="resume-bullets resume-entry__header">
-                {PROJECTS.map((p, i) => (
-                  <li key={i} className="resume-bullets__item">
-                    <strong>{p.title}</strong>
-                    <br />
-                    {p.desc}
-                  </li>
-                ))}
-              </ul>
-            </ResumeSection>
-
-            {/* Personal qualities */}
-            <ResumeSection title="Personal qualities">
-              <BulletList
-                items={PERSONAL_QUALITIES}
-                className="resume-bullets"
-              />
-            </ResumeSection>
-
-            {/* Interests */}
-            <ResumeSection title="Interests">
-              <BulletList items={INTERESTS} />
-            </ResumeSection>
+          {/* Interests */}
+          <ResumeSection title="Interests">
+            <BulletList items={INTERESTS} />
+          </ResumeSection>
           {/* </div> */}
         </div>
       </div>

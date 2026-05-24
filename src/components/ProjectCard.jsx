@@ -1,5 +1,5 @@
-import { ArrowRightIcon } from "./Icons";
-
+// import { ArrowRightIcon } from "./Icons";
+import { FiExternalLink } from "react-icons/fi";
 /**
  * ProjectCard
  * Displays a project image, title, one-liner description, and CTA link.
@@ -11,7 +11,14 @@ import { ArrowRightIcon } from "./Icons";
  *   alt         – image alt text
  *   href        – link destination
  */
-export default function ProjectCard({ title, description, img, alt, href = "#" }) {
+export default function ProjectCard({
+  title,
+  description,
+  img,
+  alt,
+  href = "#",
+  ctaText,
+}) {
   return (
     <article className="project-card">
       {/* Thumbnail */}
@@ -21,11 +28,11 @@ export default function ProjectCard({ title, description, img, alt, href = "#" }
 
       {/* Text */}
       <h3 className="project-card__title">{title}</h3>
-      <p  className="project-card__desc">{description}</p>
+      <p className="project-card__desc">{description}</p>
 
       {/* CTA */}
-      <a href={href} className="project-card__cta">
-        See the project <ArrowRightIcon />
+      <a href={href} className="project-card__cta" target="_blank">
+        {ctaText} <FiExternalLink />
       </a>
     </article>
   );
