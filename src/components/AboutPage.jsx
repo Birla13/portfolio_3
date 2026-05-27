@@ -26,15 +26,37 @@ export default function AboutPage() {
 
               {/* Copy */}
               <div className="about-intro__copy">
-                <p className="about-intro__lead">
-                  More than a UX/UI designer, I'm a storyteller at heart,
-                  weaving narratives through my designs.
-                </p>
+                <p className="about-intro__lead">My journey</p>
                 <p className="about-intro__body">
-                  My philosophy? Every app tells a story, and every interface is
-                  a journey. I find joy in simple things — a well-crafted
-                  espresso, the crisp pages of a new book, and the quiet buzz of
-                  a city at dawn.
+                  I’m Deepanshi Birla, a UI/UX Designer originally from
+                  Rajasthan 🐪.
+                  <br></br>
+                  <br></br>
+                  My design journey really kicked off during my B.Tech at the
+                  Indian Institute of Information Technology (IIIT), Kota. I
+                  joined the Q’n’S magazine team, where I found myself spending
+                  hours designing layouts and banners in Canva.
+                  <br></br>I didn't know it back then, but that small spark of
+                  curiosity was exactly what would lead me into digital product
+                  design.
+                  <br></br>
+                  Driven to learn more, I picked up Figma, started copying
+                  screens to understand user interfaces, and completely fell in
+                  love with the craft.
+                  <br></br>
+                  Today, I’m based in Gurugram, working at Care Health
+                  Insurance. From diving deep into UX audits to shaping
+                  high-conversion digital experiences, I've grown from
+                  experimenting with basic layouts to confidently building
+                  complex workflows. I genuinely love this field and the impact
+                  good design can make.
+                  <br></br>
+                  Outside of work, I’m constantly exploring the world to find
+                  new perspectives and figure out my own. I stay highly creative
+                  and socially active, whether I'm scriptwriting and creating
+                  reels for my channels, practicing art and crafts, or putting
+                  my observations into structured, rhyming verses for the people
+                  around me.
                 </p>
               </div>
             </div>

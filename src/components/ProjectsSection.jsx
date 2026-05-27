@@ -31,14 +31,7 @@ export default function ProjectsSection() {
           </div>
         </FadeIn>
 
-        {/* Cards grid */}
-        {/* <div className="projects__grid">
-          {PROJECTS.map((project, i) => (
-            <FadeIn key={project.id} delay={i * 0.1}>
-              <ProjectCard {...project} />
-            </FadeIn>
-          ))}
-        </div> */}
+        
 
         <div className="projects__grid">
           {PROJECTS.slice(0, 2).map((project, i) => (

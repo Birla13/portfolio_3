@@ -9,11 +9,13 @@ export default function ProjectCard({
   ctaText,
 }) {
   return (
-    <article className="project-card">
+    <article>
       {/* Thumbnail */}
-      <div className="project-card__image">
-        <img src={img} alt={alt} loading="lazy" />
-      </div>
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        <div className="project-card__image">
+          <img src={img} alt={alt} loading="lazy" />
+        </div>
+      </a>
 
       {/* Text */}
       <h3 className="project-card__title">{title}</h3>
