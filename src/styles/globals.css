@@ -1351,7 +1351,7 @@ main {
 }
 
 .cs-card__title {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
   color: var(--color-text);
@@ -1581,6 +1581,34 @@ main {
   color: var(--color-text-muted);
 }
 
+/* A group heading row that spans the table, e.g. a problem theme */
+.cs-table tbody+tbody {
+  border-top: 1px solid var(--color-border);
+}
+
+.cs-table .cs-table__group {
+  background: var(--cs-accent-soft);
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cs-accent);
+}
+
+/* Grouped table (problems and solutions): striped rows, darker first column */
+.cs-table--grouped tbody tr:nth-child(even) td {
+  background: rgba(24, 29, 39, 0.02);
+}
+
+.cs-table--grouped tbody td:first-child {
+  color: var(--color-text);
+}
+
+.cs-table--grouped strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
 /* Status pills */
 .cs-pill {
   display: inline-block;
@@ -1621,6 +1649,11 @@ main {
   align-items: start;
 }
 
+.cs-compare--stacked {
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
 .cs-compare>div {
   min-width: 0;
 }
@@ -1632,6 +1665,25 @@ main {
   text-transform: uppercase;
   color: var(--color-text-muted);
   margin-bottom: 8px;
+}
+
+/* Labels over a row of phone screens in one image; columns match the screens */
+.cs-device-row {
+  display: grid;
+  grid-template-columns: repeat(5, 18.5%);
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: calc(6px - 1.25rem - .25rem);
+}
+
+.cs-device-row p.cs-added__device {
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+/* A label straight inside a section sits close to what it names */
+.cs-section__content>.cs-compare__label {
+  margin-bottom: calc(8px - 1.25rem);
 }
 
 .cs-compare__label--after {
@@ -1646,16 +1698,7 @@ main {
   margin: .25rem 0 0;
 }
 
-.fig-tap {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 0;
-  cursor: zoom-in;
-  border-radius: var(--radius-md);
-}
-
-.fig-tap img {
+.cs-figure__img {
   width: 100%;
   height: auto;
   border-radius: var(--radius-md);
@@ -1663,28 +1706,15 @@ main {
   background: #fff;
 }
 
-.cs-hero__cover .fig-tap,
-.cs-hero__cover .fig-tap img {
+/* Transparent images: no white card behind them */
+.cs-figure--bare .cs-figure__img {
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+
+.cs-hero__cover .cs-figure__img {
   border-radius: var(--radius-xl);
-}
-
-.fig-tap__icon {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, .72);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background .2s ease;
-}
-
-.fig-tap:hover .fig-tap__icon {
-  background: #000;
 }
 
 .cs-figure__caption {
@@ -1692,6 +1722,98 @@ main {
   line-height: 1.5;
   color: var(--color-text-muted);
   text-align: center;
+}
+
+/* Narrower images: a tall sitemap, a phone screen */
+.cs-figure--narrow {
+  max-width: 640px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.cs-figure--phone {
+  max-width: 360px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* "What I added": numbered close-ups, each crop at its own size */
+.cs-added {
+  display: grid;
+  gap: 28px;
+}
+
+.cs-added--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cs-added__item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-added__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-added__num {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--cs-accent);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.cs-added .cs-figure {
+  margin: 0;
+}
+
+.cs-added .cs-figure__img {
+  width: auto;
+  max-width: 100%;
+}
+
+/* Desktop and mobile crops of the same feature, side by side */
+.cs-added__pair {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.cs-added__pair>div {
+  min-width: 0;
+}
+
+p.cs-added__device,
+.cs-added__item p.cs-added__device {
+  font-size: .75rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.cs-added__item p {
+  font-size: .9375rem;
+  line-height: 1.65;
+  color: var(--color-body);
+}
+
+.cs-added__item strong {
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 /* Stand-in for an image that isn't ready yet */
@@ -1754,76 +1876,6 @@ main {
 }
 
 
-/* Lightbox */
-.lightbox {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  width: 100vw;
-  height: 100dvh;
-  max-width: none;
-  max-height: none;
-  background: rgba(10, 10, 10, .94);
-  color: #fff;
-}
-
-.lightbox::backdrop {
-  background: rgba(10, 10, 10, .94);
-}
-
-.lightbox__bar {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: calc(env(safe-area-inset-top, 0px) + 10px) 12px 10px;
-  background: rgba(10, 10, 10, .9);
-}
-
-.lightbox__btn {
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, .3);
-  color: #fff;
-  font: 500 16px/1 var(--font-sans);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox__btn:focus-visible {
-  outline-color: #fff;
-}
-
-.lightbox__stage {
-  position: absolute;
-  inset: calc(env(safe-area-inset-top, 0px) + 64px) 0 0;
-  overflow: auto;
-  padding: 12px 12px calc(env(safe-area-inset-bottom, 0px) + 24px);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.lightbox__stage img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  background: #fff;
-}
-
-.lightbox.is-actual .lightbox__stage {
-  justify-content: flex-start;
-}
-
-.lightbox.is-actual .lightbox__stage img {
-  max-width: none;
-}
-
 /* ─── 13. Desktop ≥768px ─── */
 @media (min-width: 768px) {
   .container {
@@ -1880,6 +1932,16 @@ main {
 @media (min-width: 1024px) {
   .cs-toc {
     display: none;
+  }
+}
+
+/* Tablet and phone ≤1024px: side-by-side images stack */
+@media (max-width: 1024px) {
+  .cs-compare,
+  .cs-added--two,
+  .cs-added__pair {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
@@ -2104,8 +2166,7 @@ main {
 }
 
 .cs-cards,
-.cs-pairs,
-.cs-compare {
+.cs-pairs {
   grid-template-columns: 1fr;
 }
 
@@ -2122,8 +2183,7 @@ main {
   padding: 20px;
 }
 
-.cs-hero__cover .fig-tap,
-.cs-hero__cover .fig-tap img {
+.cs-hero__cover .cs-figure__img {
   border-radius: var(--radius-md);
 }
 }

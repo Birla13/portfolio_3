@@ -1,7 +1,7 @@
-/** Two images side by side, labelled Before and After (stacked on phones). */
-export default function Compare({ before, after, beforeLabel = "Before", afterLabel = "After" }) {
+/** Two images side by side, labelled Before and After (stacked on phones, or always with `stacked`). */
+export default function Compare({ before, after, beforeLabel = "Before", afterLabel = "After", stacked = false }) {
   return (
-    <div className="cs-compare">
+    <div className={stacked ? "cs-compare cs-compare--stacked" : "cs-compare"}>
       <div>
         <p className="cs-compare__label">{beforeLabel}</p>
         {before}

@@ -64,12 +64,6 @@ export const ExternalLinkIcon = ({ size }) => (
   </Svg>
 );
 
-export const ExpandIcon = () => (
-  <Svg stroke strokeWidth={2}>
-    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-  </Svg>
-);
-
 export const ImageIcon = () => (
   <Svg size={28} stroke>
     <rect x="3" y="3" width="18" height="18" rx="3" />

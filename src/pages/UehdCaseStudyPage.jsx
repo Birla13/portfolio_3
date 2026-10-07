@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon, ExternalLinkIcon } from "../components/Icons";
 import Section from "../components/case-study/Section";
@@ -9,17 +9,18 @@ import MetaRow from "../components/case-study/MetaRow";
 import Timeline from "../components/case-study/Timeline";
 import ProblemSolution from "../components/case-study/ProblemSolution";
 import CaseFigure from "../components/case-study/CaseFigure";
-import Lightbox from "../components/case-study/Lightbox";
 import SectionBar from "../components/case-study/SectionBar";
 import ReadingProgress from "../components/case-study/ReadingProgress";
 
 import heroMockup from "../Images/uehd/hero.webp";
 import navigationStates from "../Images/uehd/navigation.webp";
-import informationArchitecture from "../Images/uehd/information-architecture.svg";
+import informationArchitecture from "../Images/uehd/uehd-sitemap.webp";
 import wireframes from "../Images/uehd/wireframes.webp";
 import industriesBeforeAfter from "../Images/uehd/before-after.webp";
 import styleGuide from "../Images/uehd/style-guide.webp";
 import finalScreens from "../Images/uehd/desktop.webp";
+import productListing from "../Images/uehd/product.webp";
+import productDetail from "../Images/uehd/product-des.webp";
 
 /*
  * UEHD case study (/projects/uehd).
@@ -200,7 +201,6 @@ const FUTURE_SCOPE = [
 ];
 
 export default function UehdCaseStudyPage() {
-  const [lightboxImage, setLightboxImage] = useState(null);
 
   useEffect(() => {
     const previous = document.title;
@@ -221,7 +221,6 @@ export default function UehdCaseStudyPage() {
             <CaseFigure
               src={heroMockup}
               alt="Hero mockup across devices"
-              onOpen={setLightboxImage}
             />
           </div>
           <h1 className="cs-hero__title">
@@ -331,8 +330,8 @@ export default function UehdCaseStudyPage() {
           </p>
           <CaseFigure
             src={navigationStates}
+            className="cs-figure--bare"
             alt="Navigation states: desktop expanded and scrolled, mobile collapsed and expanded"
-            onOpen={setLightboxImage}
           />
         </S>
 
@@ -340,7 +339,6 @@ export default function UehdCaseStudyPage() {
           <CaseFigure
             src={informationArchitecture}
             alt="Information architecture diagram"
-            onOpen={setLightboxImage}
           />
         </S>
 
@@ -353,8 +351,8 @@ export default function UehdCaseStudyPage() {
           </p>
           <CaseFigure
             src={wireframes}
+            className="cs-figure--bare"
             alt="Wireframes"
-            onOpen={setLightboxImage}
           />
         </S>
 
@@ -376,8 +374,8 @@ export default function UehdCaseStudyPage() {
           </p>
           <CaseFigure
             src={industriesBeforeAfter}
+            className="cs-figure--bare"
             alt="Industries We Serve: before and after"
-            onOpen={setLightboxImage}
           />
         </S>
 
@@ -388,8 +386,8 @@ export default function UehdCaseStudyPage() {
           </p>
           <CaseFigure
             src={styleGuide}
+            className="cs-figure--bare"
             alt="Style guide: colours, type scale and components"
-            onOpen={setLightboxImage}
           />
         </S>
 
@@ -400,10 +398,26 @@ export default function UehdCaseStudyPage() {
             splits specs into tabs so technical buyers get full details without
             crowding the page for everyone else.
           </p>
+          <h3 className="cs-subheading">Home page</h3>
           <CaseFigure
             src={finalScreens}
-            alt="Final screens per page and breakpoint"
-            onOpen={setLightboxImage}
+            className="cs-figure--bare"
+            alt="Home page on desktop, tablet and mobile"
+            caption={null}
+          />
+          <h3 className="cs-subheading">Product listing page</h3>
+          <CaseFigure
+            src={productListing}
+            className="cs-figure--bare"
+            alt="Product listing page on desktop, tablet and mobile"
+            caption={null}
+          />
+          <h3 className="cs-subheading">Product detail page</h3>
+          <CaseFigure
+            src={productDetail}
+            className="cs-figure--bare"
+            alt="Product detail page on desktop, tablet and mobile"
+            caption={null}
           />
         </S>
 
@@ -448,7 +462,6 @@ export default function UehdCaseStudyPage() {
       </div>
 
       <ReadingProgress />
-      <Lightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
     </article>
   );
 }

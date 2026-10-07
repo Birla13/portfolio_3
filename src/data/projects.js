@@ -1,4 +1,5 @@
 import project1 from "../Images/project1.png";
+import project from "../Images/project.png";
 import project2 from "../Images/project2.png";
 import project3 from "../Images/project3.png";
 import project4 from "../Images/project4.png";
@@ -30,7 +31,7 @@ export const PROJECTS = [
     title: "Faveo Agent Dashboard",
     description:
       "Care Health's dashboard for insurance agents, redesigned with beginner and advanced views, guided onboarding and AI suggestions.",
-    img: project2,
+    img: project,
     alt: "Faveo Agent Dashboard",
     to: "/projects/faveo",
     ctaText: "View case study",
