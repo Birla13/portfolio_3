@@ -1,17 +1,14 @@
 import FadeIn from "./FadeIn";
 
 /**
- * "Selected projects" heading and intro text.
+ * Projects label and heading.
  * Use `as="h1"` when it's the main heading of the page.
  */
-export default function ProjectsIntro({ as: Heading = "h2" }) {
+export default function ProjectsIntro({ as: Heading = "h2", eyebrow, title }) {
   return (
     <FadeIn className="projects__header">
-      <Heading className="heading-lg">Selected projects</Heading>
-      <p className="body-base projects__intro">
-        Explore my selected projects, showcasing my dedication to innovative
-        and heartfelt design.
-      </p>
+      <p className="eyebrow">{eyebrow}</p>
+      <Heading className="heading-lg">{title}</Heading>
     </FadeIn>
   );
 }

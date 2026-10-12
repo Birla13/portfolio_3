@@ -44,6 +44,13 @@ export const CloseIcon = ({ size = 20 }) => (
   </Svg>
 );
 
+export const MailIcon = ({ size = 14 }) => (
+  <Svg size={size} stroke strokeWidth={2} style={{ flexShrink: 0 }}>
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  </Svg>
+);
+
 export const ArrowRightIcon = () => (
   <Svg stroke strokeWidth={2} style={{ flexShrink: 0 }}>
     <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

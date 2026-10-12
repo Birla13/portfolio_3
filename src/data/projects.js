@@ -17,9 +17,9 @@ import project5 from "../Images/project5.png";
 export const PROJECTS = [
   {
     id: "hoist-division",
-    title: "UEHD - Universal Enterprises Hoist Division",
+    title: "Helping buyers find industrial cranes without knowing their technical names",
     description:
-      "A high-performance industrial platform for the Universal Enterprises Hoist Division featuring specialized equipment and services.",
+      "Taking an authorised retailer of industrial cranes online. A freelance project with one other designer, from needs analysis to the Framer build.",
     img: project1,
     alt: "UEHD",
     to: "/projects/uehd",
@@ -28,9 +28,9 @@ export const PROJECTS = [
   },
   {
     id: "faveo-dashboard",
-    title: "Faveo Agent Dashboard",
+    title: "Turning a cluttered agent portal into a guided daily workspace",
     description:
-      "Care Health's dashboard for insurance agents, redesigned with beginner and advanced views, guided onboarding and AI suggestions.",
+      "Redesigning the dashboard Care Health's insurance agents use to sell and earn. As the only designer, I led research and designed every view.",
     img: project,
     alt: "Faveo Agent Dashboard",
     to: "/projects/faveo",
@@ -39,9 +39,9 @@ export const PROJECTS = [
   },
   {
     id: "reimagining-insurance",
-    title: "Reimagining Insurance For Everyday User",
+    title: "Making several insurance policies easy to manage in one app",
     description:
-      "An adaptive mobile ecosystem that simplifies complex multi-policy management and personal health tracking for customers.",
+      "Making health insurance easier for Care Health's policyholders. Working with the design team, I redesigned 10+ modules of the app.",
     img: project4,
     alt: "Insurance Customer app",
     href: "https://dribbble.com/shots/27337907-Reimagining-Insurance-For-Everyday-User",
@@ -50,9 +50,9 @@ export const PROJECTS = [
   },
   {
     id: "faveo-plus",
-    title: "Faveo Plus - Internal Agent Platform Redesign",
+    title: "Cutting friction from 15+ daily workflows for insurance agents",
     description:
-      "A streamlined agent application focused on efficient internal workflows, mobile productivity, and optimized insurance operations.",
+      "Simplifying the mobile app insurance agents use every day. With my team, I audited 15+ workflows and redesigned it around faster tasks.",
     img: project2,
     alt: "Faveo App",
     href: "https://dribbble.com/shots/27194549-Next-Gen-Insurance-Agent-App",
@@ -61,9 +61,9 @@ export const PROJECTS = [
   },
   {
     id: "bmi-calculator",
-    title: "BMI Calculator",
+    title: "Turning a simple health check into new website visitors",
     description:
-      "A clean, accessible health tool designed for quick body mass index tracking through intuitive visual metrics.",
+      "A quick health check that brings new visitors to Care Health's website. I designed and shipped it with the SEO and content teams.",
     img: project3,
     alt: "BMI Calculator",
     href: "https://www.careinsurance.com/health-insurance/calculators/bmi-calculator",
@@ -72,9 +72,9 @@ export const PROJECTS = [
   },
   {
     id: "web-story",
-    title: "Web Story",
+    title: "Making health and insurance tips quick to read on mobile",
     description:
-      "A visual content hub delivering health, travel, and insurance insights through an engaging, easy-to-read format.",
+      "Short, swipeable health, travel and insurance stories for Care Health's website. I designed the format so each screen shares one tip.",
     img: project5,
     alt: "Web Story",
     href: "https://www.careinsurance.com/web-story/",

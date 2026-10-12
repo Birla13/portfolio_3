@@ -18,8 +18,9 @@ export default function AboutPage() {
             <div className="about-intro__copy">
               {/* <p className="about-intro__lead">My journey</p>
                */}
+              <p className="eyebrow">About me</p>
               <FadeIn as="h2" delay={0.05} className="about-section__title">
-                My journey
+                How I found design
               </FadeIn>
               <p className="about-intro__body">
                 I’m Deepanshi Birla, a UI/UX Designer originally from Rajasthan
@@ -58,8 +59,9 @@ export default function AboutPage() {
       {/* Inspirations & interests */}
       <section className="about-interests band band--b">
         <div className="container">
+          <p className="eyebrow">Hobbies</p>
           <FadeIn as="h2" className="about-section__title">
-            My inspirations and interests
+            Life beyond design
           </FadeIn>
           <FadeIn delay={0.08} className="about-interests__copy">
             <p className="body-base">

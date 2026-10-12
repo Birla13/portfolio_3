@@ -10,7 +10,6 @@
 :root {
   --color-bg: #ffffff;
   --color-bg-soft: #f4f4f2;
-  --color-nav: rgba(255, 255, 255, 0.7);
   --color-text: #000000;
   --color-heading: #333333;
   --color-body: #333333;
@@ -23,6 +22,8 @@
   --color-icon: #374151;
   --color-hover: #f3f4f6;
   --color-drawer: #333333;
+  /* Brand accent: nav button + underline, section eyebrows */
+  --color-accent: #2563eb;
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --container-px-lg: 5rem;
   --radius-sm: 0.5rem;
@@ -30,7 +31,7 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
   --transition-base: all 0.2s ease;
-  --nav-h: 64px;
+  --nav-h: 66px;
   /* Section bands */
   --band-a: #ffffff;
   --band-b: #fafafa;
@@ -46,7 +47,7 @@
   --cs-accent-soft: #fff4ed;
   --cs-accent-border: #f5d0bd;
   --cs-accent-line: rgba(194, 65, 12, 0.55);
-  --cs-heading-color: #008ACC;
+  --cs-heading-color: var(--color-accent);
   --cs-info: #1d5fbf;
   --cs-info-soft: #eef4fc;
   --cs-info-border: #c8dbf4;
@@ -156,10 +157,24 @@ ol {
 }
 
 .heading-lg {
-  font-size: 3.25rem;
+  font-size: 2.5rem;
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
+}
+
+/* Small uppercase label above a section heading */
+.eyebrow {
+  font-size: .8125rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: .75rem;
+}
+
+.site-end .eyebrow {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .body-base {
@@ -171,6 +186,21 @@ ol {
 /* ─── 4. Layout ─── */
 main {
   width: 100%;
+}
+
+/* The nav floats over the page, so push each page's first section down below it.
+   A transparent border (not padding) keeps the section's own padding as is and
+   lets its background show behind the nav. --nav-h already includes the safe area
+   that :root pads for. */
+main > :first-child {
+  border-top: calc(var(--nav-h) - env(safe-area-inset-top, 0px)) solid transparent;
+}
+
+/* Extra breathing room between the nav and the content on desktop */
+@media (min-width: 768px) {
+  main > :first-child {
+    border-top-width: calc(var(--nav-h) - env(safe-area-inset-top, 0px) + 40px);
+  }
 }
 
 .container {
@@ -238,72 +268,285 @@ main {
 }
 
 /* ─── 5. Nav ─── */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  width: 100%;
-  padding-top: env(safe-area-inset-top, 0px);
-  background-color: var(--color-nav);
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
-  border-bottom: 1px solid var(--color-border);
+/* A dark pill floating near the top of the screen. Below 768px the links move
+   into a full-screen menu (.nav-menu). */
+.nav,
+.nav-menu {
+  --nav-bg: #242423;
+  --nav-accent: var(--color-accent);
+  --nav-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav__inner {
-  padding: 0 80px;
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px 0;
+  /* Only the pill catches clicks, not the empty strip around it */
+  pointer-events: none;
+  animation: nav-drop 0.7s var(--nav-ease) both;
+}
+
+@keyframes nav-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+.nav__pill {
+  pointer-events: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 4rem;
+  gap: 16px;
+  width: 100%;
+  max-width: 720px;
+  padding: 6px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--nav-bg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: border-color 0.3s ease;
+}
+
+.nav__pill:hover {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav__brand {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--color-text);
+  padding-left: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.nav__divider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav__links {
-  display: none;
+  flex: 1;
+  display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 4px;
 }
 
 .nav__link {
-  font-size: 18px;
-  color: var(--color-text-muted);
-  transition: var(--transition-base);
+  position: relative;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.15s ease;
+}
+
+.nav__link:hover,
+.nav__link--active {
+  color: #fff;
+}
+
+/* Accent line that wipes in from the left on hover, and stays on the current page */
+.nav__underline {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 2px;
+  background-color: var(--nav-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s var(--nav-ease);
+}
+
+.nav__link:hover .nav__underline,
+.nav__link--active .nav__underline {
+  transform: scaleX(1);
 }
 
 /* Nav links that open another site (e.g. Resume): label + redirect icon */
 .nav-external {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
 }
 
-.nav__link:hover {
-  color: var(--color-text);
-}
-
-.nav__link--active {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
-.nav__hamburger {
-  display: flex;
+.nav__cta {
+  flex-shrink: 0;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-right: -10px;
-  color: var(--color-text);
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background-color: var(--nav-accent);
+  color: #fff;
+  font-size: 12.5px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px -4px color-mix(in srgb, var(--nav-accent) 50%, transparent);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.nav__drawer {
+.nav__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -6px color-mix(in srgb, var(--nav-accent) 60%, transparent);
+}
+
+.nav__cta:active {
+  transform: translateY(0);
+}
+
+.nav__hamburger,
+.nav-menu {
   display: none;
+}
+
+@media (max-width: 767px) {
+
+  .nav__divider,
+  .nav__links,
+  .nav__pill > .nav__cta {
+    display: none;
+  }
+
+  .nav__pill {
+    justify-content: space-between;
+  }
+
+  .nav__hamburger,
+  .nav-menu__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .nav__hamburger:hover,
+  .nav-menu__close:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Full-screen menu: slides down and fades in; hidden from tabbing while closed */
+  .nav-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    padding: calc(env(safe-area-inset-top, 0px) + 1.5rem) 1.5rem calc(env(safe-area-inset-bottom, 0px) + 2.5rem);
+    overflow-y: auto;
+    background-color: var(--nav-bg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: transform 0.32s var(--nav-ease), opacity 0.26s ease, visibility 0s 0.32s;
+  }
+
+  .nav-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  .nav-menu__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .nav-menu__top .nav__brand {
+    padding-left: 0;
+  }
+
+  .nav-menu__close {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-menu__links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-menu__link,
+  .nav-menu__cta {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: transform 0.32s var(--nav-ease), opacity 0.32s ease, color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .nav-menu__link {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .nav-menu__link:hover,
+  .nav-menu__link--active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-menu__cta {
+    margin-top: auto;
+    height: 52px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* Links rise in one after another */
+  .nav-menu.is-open .nav-menu__link,
+  .nav-menu.is-open .nav-menu__cta {
+    opacity: 1;
+    transform: none;
+  }
+
+  .nav-menu.is-open .nav-menu__link:nth-child(1) { transition-delay: 80ms, 80ms, 0s, 0s; }
+  .nav-menu.is-open .nav-menu__link:nth-child(2) { transition-delay: 130ms, 130ms, 0s, 0s; }
+  .nav-menu.is-open .nav-menu__link:nth-child(3) { transition-delay: 180ms, 180ms, 0s, 0s; }
+  .nav-menu.is-open .nav-menu__cta { transition-delay: 270ms, 270ms, 0s, 0s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    animation: none;
+  }
+
+  .nav__underline,
+  .nav-menu,
+  .nav-menu__link,
+  .nav-menu__cta {
+    transition: none;
+  }
 }
 
 /* ─── 6. Home hero ─── */
@@ -415,11 +658,6 @@ main {
 /* ─── 8. Projects ─── */
 .projects__header {
   margin-bottom: 3.5rem;
-}
-
-.projects__intro {
-  margin-top: 0.75rem;
-  max-width: 36rem;
 }
 
 .projects__see-all {
@@ -646,20 +884,12 @@ main {
 }
 
 .cta-section__heading {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: #f0f0f0;
-  margin-bottom: 8px;
-}
-
-.cta-section__sub {
-  font-size: 16px;
-  color: #fff;
-  line-height: 1.6;
   margin-bottom: 2rem;
-  max-width: 36rem;
 }
 
 .cta-section__btn {
@@ -798,7 +1028,7 @@ main {
 }
 
 .about-section__title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -926,7 +1156,7 @@ main {
 }
 
 .cs-hero__title {
-  font-size: 3.25rem;
+  font-size: 2.5rem;
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -1886,14 +2116,6 @@ p.cs-added__device,
     padding-inline: var(--container-px-lg);
   }
 
-  .nav__links {
-    display: flex;
-  }
-
-  .nav__hamburger {
-    display: none;
-  }
-
   .project-row {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
@@ -2013,8 +2235,8 @@ p.cs-added__device,
     padding: 0;
   }
 
-  .cta-section__sub {
-    margin-bottom: 16px;
+  .site-end .cta-section__heading {
+    margin-bottom: 1.25rem;
   }
 
   .footer__main {
@@ -2059,48 +2281,41 @@ p.cs-added__device,
     gap: 10px;
   }
 
-  .bento__item--a,
-  .bento__item--b,
-  .bento__item--e,
-  {
-  grid-column: 1 / 3;
-  grid-row: auto;
-}
+  /* Two columns: Clay (big), Art & Craft, Mandana + Doodling beside the
+     tall Reels tile, then Writing */
+  .bento__item--a {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+  }
 
-.bento__item--a {
-  grid-row: span 2;
-}
+  .bento__item--b {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
 
-.bento__item--c,
-.bento__item--d {
-  grid-column: auto;
-  grid-row: auto;
-}
+  .bento__item--c {
+    grid-column: 1;
+    grid-row: 4;
+  }
 
-.bento__item {
-  border-radius: var(--radius-md);
-}
+  .bento__item--d {
+    grid-column: 2;
+    grid-row: 4 / 6;
+  }
 
-.nav__inner {
-  padding: 0 20px;
-  height: 4rem;
-}
+  .bento__item--f {
+    grid-column: 1;
+    grid-row: 5;
+  }
 
-.nav__drawer.is-open {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
-  background: var(--color-drawer);
-  padding: 24px 20px;
-  height: calc(100dvh - var(--nav-h));
-  overflow-y: auto;
-}
+  .bento__item--e {
+    grid-column: 1 / 3;
+    grid-row: 6;
+  }
 
-.nav__drawer-link {
-  font-size: 1.5rem;
-  color: #fff;
-}
+  .bento__item {
+    border-radius: var(--radius-md);
+  }
 
 .hide {
   display: none;

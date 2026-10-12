@@ -11,7 +11,7 @@ export default function ProjectsSection() {
   return (
     <section className="band band--b" id="projects">
       <div className="container">
-        <ProjectsIntro />
+        <ProjectsIntro eyebrow="Featured work" title="Two projects I’m proud of" />
         <ProjectList projects={PROJECTS.slice(0, FEATURED_COUNT)} />
         <FadeIn className="projects__see-all">
           <Link to="/projects" className="cta-section__btn">

@@ -1,9 +1,10 @@
-import img1 from "../Images/1.png";
-import img2 from "../Images/2.png";
-import img3 from "../Images/3.png";
+import img1 from "../Images/1.webp";
+import img2 from "../Images/2.webp";
+import img3 from "../Images/3.webp";
 import img4 from "../Images/4.png";
-import img5 from "../Images/5.png";
 import img6 from "../Images/6.png";
+import img5 from "../Images/5.png";
+import img7 from "../Images/7.webp";
 
 /** Images for the auto-scrolling strip under the home page hero. */
 export const MARQUEE_IMAGES = [
@@ -13,4 +14,5 @@ export const MARQUEE_IMAGES = [
   { src: img4, alt: "Device display detail" },
   { src: img5, alt: "App screen on phone" },
   { src: img6, alt: "iPhone close-up angle" },
+  { src: img7, alt: "iPhone close-up angle" },
 ];

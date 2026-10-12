@@ -31,7 +31,7 @@ export default function ProjectRow({ project, flip = false, variant = "row" }) {
     description,
     img,
     alt,
-    tags = [],
+    // tags = [],
     to,
     href,
     ctaText,
@@ -59,7 +59,7 @@ export default function ProjectRow({ project, flip = false, variant = "row" }) {
           {to ? <Link to={to}>{title}</Link> : title}
         </h3>
         <p className="project-card__desc">{description}</p>
-        {tags.length > 0 && (
+        {/* {tags.length > 0 && (
           <ul className="project-tags" aria-label="Tags">
             {tags.map((tag) => (
               <li key={tag} className="project-tag">
@@ -67,7 +67,7 @@ export default function ProjectRow({ project, flip = false, variant = "row" }) {
               </li>
             ))}
           </ul>
-        )}
+        )} */}
         <ProjectLink to={to} href={href} className="project-card__cta">
           {ctaText} {to ? <ArrowRightIcon /> : <ExternalLinkIcon />}
         </ProjectLink>

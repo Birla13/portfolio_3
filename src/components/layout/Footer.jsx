@@ -15,9 +15,6 @@ export default function Footer() {
     <footer className="site-end" id="contact">
       <FadeIn className="cta-section__inner">
         <h2 className="cta-section__heading">Interested in connecting?</h2>
-        <p className="cta-section__sub">
-          Let's talk projects, collaborations, or anything design!
-        </p>
         <a href={`mailto:${EMAIL}`} className="cta-section__btn">
           Book a consultation
         </a>
@@ -28,7 +25,13 @@ export default function Footer() {
           <nav className="footer__nav" aria-label="Footer navigation">
             {NAV_LINKS.map(({ label, to, href }) =>
               href ? (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="footer__nav-link nav-external">
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer__nav-link nav-external"
+                >
                   {label}
                   <ExternalLinkIcon size="1em" />
                 </a>
@@ -36,10 +39,13 @@ export default function Footer() {
                 <Link key={label} to={to} className="footer__nav-link">
                   {label}
                 </Link>
-              )
+              ),
             )}
           </nav>
-          <SocialLinks className="footer__right" linkClassName="footer__social-btn" />
+          <SocialLinks
+            className="footer__right"
+            linkClassName="footer__social-btn"
+          />
         </div>
         <div className="footer__copy">
           Copyright {year} by {SITE_NAME}

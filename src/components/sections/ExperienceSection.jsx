@@ -8,7 +8,8 @@ export default function ExperienceSection() {
     <section className="band band--a" id="experience">
       <div className="container">
         <FadeIn className="exp__header">
-          <h2 className="heading-lg">Experience</h2>
+          <p className="eyebrow">Experience</p>
+          <h2 className="heading-lg">Where I’ve been designing</h2>
         </FadeIn>
         {EXPERIENCE_ITEMS.map((job) => (
           <FadeIn as="article" key={job.company} className="exp-item">
